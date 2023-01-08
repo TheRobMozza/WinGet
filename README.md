@@ -27,11 +27,16 @@ Installation
 ------------
 
 (1) Create a directory or drop the 'WinGet Updates.bat' file somewhere (anywhere) on your computer.
+
 (2) Right click on the batchfile and choose Send to.. Desktop (Create Shortcut), Windows 11 users will need to first click 'Show More Options'
+
 (3) Single left click on your new shortcut to WinGet Updates batchfile, then right click and Cut (or press Ctrl+x)
+
 (4) Load up Windows File Explorer, ensure you have 'hidden files' visable, then navigate to:
 	C:\Users\YOURUSERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Start-up\
+	
 (5) Right click on the 'free space' anywhere inside this folder and select 'Paste' (or press Ctrl+v)
+
 (6) Your newly creaded shortcut will now be in your startup folder and will run automatically at Windows launch.
 
 
