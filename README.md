@@ -1,4 +1,4 @@
-# winget
+# WinGet
 My WinGet auto updating batch file script
 
 About
