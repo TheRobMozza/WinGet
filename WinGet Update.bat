@@ -133,8 +133,7 @@ winget list %app% | findstr /c:"No installed package found" > nul && (
 ) || (
     winget upgrade %app% --force --silent
 )
-CD\"Program Files"\SUPERAntiSpyware\
-SUPERAntiSpyware.exe
+start C:\"Program Files"\SUPERAntiSpyware\SUPERAntiSpyware.exe
 GOTO exit
 
 :sasNo
