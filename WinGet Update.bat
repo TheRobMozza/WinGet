@@ -103,7 +103,7 @@ echo                                        ------------------------------------
 echo.
 echo                                         Forcing WinGet to reset to default
 echo.
-echo                                         You may have to re-run this batch file
+echo                                         You will have to re-run this batch file
 echo.
 echo                                        -----------------------------------------
 echo.
