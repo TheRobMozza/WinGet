@@ -1,4 +1,8 @@
 @ECHO OFF
+::
+:: WinGet 3rd Party Update Automated Batch File
+:: By TheRobMozza - https://github.com/TheRobMozza/
+::
 echo.
 echo Your OS is : && ver
 echo.
