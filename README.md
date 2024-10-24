@@ -45,7 +45,7 @@ Known Issues
 
 Historically SuperAntiSpyware has failed to update/reinstall so after the main update check has occured there is a second attempt to force update/reinstall SuperAntiSpyware. Ofcourse since I implemented this SAS double check, everything seems to of resolved itself. Maybe I will be removing this double check shortly.
 
-For whatever reason 'initdebug.nfo' file is created and the batchfile will removed on finish.
+For whatever reason 'initdebug.nfo' file is created and will be removed upon finish.
 
 
 Customisation
