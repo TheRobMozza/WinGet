@@ -82,4 +82,4 @@ If the 'App Installer' app downloads and installs correctly, double check 'winge
 		e.g.
 	add-appxpackage "C:\Users\UserAccountName\Downloads\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
 
-- Once that completes (without error) retry the command 'winget' and see if it now installed?
+- Once that completes (without error) retry the command 'winget' and see if it's now installed?
