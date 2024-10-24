@@ -14,6 +14,7 @@
 ::	CCleaner,					Yes
 ::	CPUz,						Yes
 ::	Crystal DiskMark,				Yes
+::	EaseUS Partition Master (NEW)			Yes
 ::	Firefox,					x
 ::	Google Chrome,					x
 ::	Jet Brains Toolbox,				x
@@ -23,6 +24,7 @@
 ::	Putty			(NEW)			x
 ::	Real VNC		(NEW)			x
 ::	Shotcut,					x
+::	SpeedFan		(NEW)			Yes
 ::	TeamViewer,					Yes
 ::	Windows Powershell				x
 ::	WinRAR,						x
@@ -39,7 +41,7 @@ CD\
 ::*************************************************
 ::*************************************************
 ::
-SET %USERNAME% = "WINDOWS-USERNAME-HERE eg Owner or YourName"
+SET %USERNAME% = "YOUR-USERNAME e.g. Owner"
 ::
 ::^^ YOUR-WINDOWS-ACCOUNT-USERNAME-HERE ^^::
 ::
@@ -185,13 +187,15 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\CCleaner\" (
 )
 IF EXIST "C:\Users\Public\Desktop\CCleaner.lnk" (
 			echo y|del "C:\Users\Public\Desktop\CCleaner.lnk" >nul
+			SET /a desktopicons=%desktopicons% + 1
 		) ELSE (
-			BREAK
+			echo.
 		)
 IF EXIST "C:\Users\%USERNAME%\Desktop\CCleaner.lnk" (
 			echo y|del "C:\Users\%USERNAME%\Desktop\CCleaner.lnk" >nul
+			SET /a desktopicons=%desktopicons% + 1
 		) ELSE (
-			BREAK
+			echo.
 		)
 TIMEOUT 1 >nul
 
@@ -239,8 +243,21 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\CrystalDiskInfo\"
 )
 IF EXIST "C:\Users\Public\Desktop\CrystalDiskInfo.lnk" (
 			echo y|del "C:\Users\Public\Desktop\CrystalDiskInfo.lnk" >nul
+			SET /a desktopicons=%desktopicons% + 1
 		) ELSE (
-			BREAK
+			echo.
+		)
+TIMEOUT 1 >nul
+
+:: =========================
+:: EaseUS Partition Master..
+:: =========================
+IF EXIST "C:\Users\Public\Desktop\EaseUS Partition Master.lnk" (
+			echo y|del "C:\Users\Public\Desktop\EaseUS Partition Master.lnk" >nul
+			SET %desktopicons%=%desktopicons% + 1
+			echo ** EASEUS PARTITION MASTER LINKS REMOVED! ** && echo.
+		) ELSE (
+			echo Thankfully no EaseUS Partiton Master Links found! && echo.
 		)
 TIMEOUT 1 >nul
 
@@ -264,9 +281,9 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Firefo*.lnk" (
 )
 TIMEOUT 1 >nul
 
-:: =============
-:: Google Chrome
-:: =============
+:: ===============
+:: Google Chrome..
+:: ===============
 IF EXIST "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Google Chrome.lnk" (
 	IF EXIST "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Google Chrome\" (
 		XCOPY "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Google Chrome.lnk" "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Google Chrome\" >nul
@@ -326,16 +343,16 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OBS Studio\" (
 	echo Thankfully no OBS Links found! && echo.
 	)
 )
+
+::OBS Desktop Link Checker::
 IF EXIST "C:\Users\Public\Desktop\OBS Studio.lnk" (
 	DEL "C:\Users\Public\Desktop\OBS Studio.lnk" >nul
-	&& ::REM::
+	SET desktopicons=%desktopicons% + 1
 ) ELSE	(
-	::REM::
+	echo.
 	)
 )
-SET %desktopicons%=%desktopicons% + 1
 TIMEOUT 1 >nul
-
 
 :: =======
 :: Putty..
@@ -372,9 +389,9 @@ IF EXIST "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Progr
 )
 TIMEOUT 1 >nul
 
-:: ============
-:: Malwarebytes
-:: ============
+:: ==============
+:: Malwarebytes..
+:: ==============
 IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Malwarebytes.lnk" (
 	IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Security ESSENTIALS\Malwarebytes\" (
 		XCOPY "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Malwarebytes.lnk" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Security ESSENTIALS\Malwarebytes\" /y >nul
@@ -386,15 +403,15 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Malwarebytes.lnk"
 		echo y|del "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Malwarebytes.lnk" >nul
 		echo ** MALWAREBYTES LINK REMOVED! ** && echo.
 	) 
-ELSE	(
+)ELSE	(
 	echo Thankfully no Malwarebytes Links found! && echo.
 	)
 
 IF EXIST "C:\Users\%USERNAME%\Desktop\Malwarebytes.lnk" (
 			echo y|del "C:\Users\%USERNAME%\Desktop\Malwarebytes.lnk" >nul
-			set /a desktopicons=desktopicons+1
+			set /a desktopicons=%desktopicons% + 1
 		) ELSE (
-			BREAK
+			echo.
 		)
 TIMEOUT 1 >nul
 
@@ -420,7 +437,6 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\RealVNC\" (
 )
 TIMEOUT 1 >nul
 
-
 :: =========
 :: Shotcut..
 :: =========
@@ -439,6 +455,18 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Shotcut.lnk" (
 	echo Thankfully no Shotcut Links found! && echo.
 	)
 )
+TIMEOUT 1 >nul
+
+:: ==========
+:: SpeedFan..
+:: ==========
+IF EXIST "C:\Users\%USERNAME%\Desktop\SpeedFan.lnk" (
+			echo y|del "C:\Users\%USERNAME%\Desktop\SpeedFan.lnk" >nul
+			SET /a desktopicons=%desktopicons% + 1
+			echo ** SPEEDFAN LINKS REMOVED! ** && echo.
+		) ELSE (
+			echo Thankfully no Speedfan Links found! && echo.
+		)
 TIMEOUT 1 >nul
 
 :: =============
@@ -461,9 +489,9 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TeamViewer.lnk" (
 )
 IF EXIST "C:\Users\Public\Desktop\TeamViewer.lnk" (
 	echo y|del C:\Users\Public\Desktop\Teamviewer.lnk
-	set /a desktopicons=desktopicons+1
+	SET /a desktopicons=%desktopicons% + 1
 ) ELSE (
-	BREAK
+	echo.
 	)
 TIMEOUT 1 >nul
 
@@ -535,13 +563,13 @@ IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WinRAR\" (
 	echo y|del "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WinRAR\" >nul
 	rd "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WinRAR\" >nul
 ) ELSE (
-	BREAK
+	echo.
 )
 TIMEOUT 1 >nul
 
-:: =========
-:: Win SCP..
-:: =========
+:: ========
+:: WinSCP..
+:: ========
 IF EXIST "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\WinSCP.lnk" ( 
 	IF EXIST "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\System Tools\WinSCP\" ( 
 		XCOPY "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\WinSCP.lnk" "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\WinSCP\" /y >nul
